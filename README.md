@@ -10,8 +10,8 @@
     + [Baekjoon] yy-mm-dd
     + [Programmers] yy-mm-dd
 - 업로드 위치
-    + Baekjoon/이름/파일명
-    + Programmers/이름/파일명
+    + Baekjoon/이름/현재 주차/파일명
+    + Programmers/이름/현재 주차/파일명
 - 라벨
     + I'm trying 🔥: 시도했지만 해결하지 못한 문제가 있는 pr
     + help 🙋‍♂️: 도움이 필요한 pr
