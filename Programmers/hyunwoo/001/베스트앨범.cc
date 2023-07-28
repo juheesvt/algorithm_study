@@ -1,22 +1,23 @@
 #include <string>
 #include <vector>
+#include <set>
 #include <unordered_map>
 #include <map>
 
 using namespace std;
+#include <iostream>
 
 struct customFn {
     bool operator()(const int lhs, const int rhs) const {
         return lhs > rhs;
     }
 };
-// 53점 score
+
 vector<int> solution(vector<string> genres, vector<int> plays) {
     vector<int> answer;
     map<string,int> genresScore;
     multimap<int,string,customFn> totalScore;
     unordered_map<string, multimap<int,int,customFn>> bestAlbum;
-    
     for(int i = 0; i < genres.size(); i++) {
         genresScore[genres.at(i)] += plays.at(i);
         bestAlbum[genres.at(i)].insert(std::make_pair(plays.at(i), i));
@@ -38,6 +39,10 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
             }
             biter++;
             biter_next++;
+            // 빠졌던것 장르에 속한 곡이 하나라면, 하나의 곡만 선택
+            if(biter == bestAlbum.find((*iter).second)->second.end()) {
+                break;
+            }
         }
     }
     
